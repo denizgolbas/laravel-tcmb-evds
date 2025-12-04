@@ -97,7 +97,7 @@ class Evds
                     'code' => $item->code,
                     'type' => $item->type,
                     'market_type' => $item->marketType,
-                    'date' => $item->date,
+                    'date' => $item->date->format('Y-m-d'),
                 ],
                 [
                     'rate' => $rate,
