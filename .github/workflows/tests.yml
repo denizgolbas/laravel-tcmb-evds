@@ -45,7 +45,6 @@ jobs:
       - name: Setup environment variables
         run: |
           echo "TCMB_EVDS_API_KEY=${{ secrets.TCMB_EVDS_API_KEY }}" >> $GITHUB_ENV
-        if: ${{ secrets.TCMB_EVDS_API_KEY != '' }}
 
       - name: Install dependencies
         run: |
