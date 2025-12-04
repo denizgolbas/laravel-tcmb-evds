@@ -78,7 +78,7 @@ class Evds
 
         foreach ($data as $item) {
             // Skip empty or invalid data
-            if (empty($item->code) || $item->rate <= 0 || empty($item->date)) {
+            if (empty($item->code) || $item->rate <= 0 || $item->date === null) {
                 continue;
             }
 
@@ -87,7 +87,7 @@ class Evds
                     'code' => $item->code,
                     'type' => $item->type,
                     'market_type' => $item->marketType,
-                    'date' => $item->date->format('Y-m-d'),
+                    'date' => $item->date,
                 ],
                 [
                     'rate' => $item->rate,

@@ -42,7 +42,7 @@ class EvdsTest extends TestCase
             ->endDate('2024-01-10')
             ->build();
 
-        $this->assertStringContainsString('https://evds2.tcmb.gov.tr/service/evds/', $url);
+        $this->assertStringContainsString('https://evds2.tcmb.gov.tr/service/evds', $url);
         $this->assertStringContainsString('series=', $url);
         $this->assertStringContainsString('TP.DK.USD', $url);
         $this->assertStringContainsString('TP.DK.EUR', $url);

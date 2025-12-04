@@ -7,6 +7,7 @@ namespace Denizgolbas\LaravelTcmbEvds;
 use Carbon\Carbon;
 use Denizgolbas\LaravelTcmbEvds\Exceptions\InvalidDateException;
 use Denizgolbas\LaravelTcmbEvds\Exceptions\InvalidConfigurationException;
+use Illuminate\Support\Collection;
 
 class Builder
 {
