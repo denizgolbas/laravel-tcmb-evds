@@ -3,6 +3,9 @@
 🇹🇷 **Türkçe** | [🇬🇧 English](README_EN.md)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/denizgolbas/laravel-tcmb-evds.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/laravel-tcmb-evds)
+[![Total Downloads](https://img.shields.io/packagist/dt/denizgolbas/laravel-tcmb-evds.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/laravel-tcmb-evds)
+[![License](https://img.shields.io/packagist/l/denizgolbas/laravel-tcmb-evds.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/laravel-tcmb-evds)
+[![PHP Version](https://img.shields.io/packagist/php-v/denizgolbas/laravel-tcmb-evds.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/laravel-tcmb-evds)
 [![Tests](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml/badge.svg)](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml)
 
 TCMB EVDS2 API'sinin "Günlük Döviz Kurları (Daily FX Rates)" servisine özel geliştirilmiş, modern bir Laravel paketi.
