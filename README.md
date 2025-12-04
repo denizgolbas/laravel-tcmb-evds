@@ -1,5 +1,7 @@
 # Laravel TCMB EVDS2 Günlük Döviz Kurları Paketi
 
+🇹🇷 **Türkçe** | [🇬🇧 English](README_EN.md)
+
 [![Tests](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml/badge.svg)](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml)
 
 TCMB EVDS2 API'sinin "Günlük Döviz Kurları (Daily FX Rates)" servisine özel geliştirilmiş, modern bir Laravel paketi.
