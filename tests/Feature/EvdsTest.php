@@ -150,7 +150,6 @@ class EvdsTest extends TestCase
             'market_type' => 'forex',
             'rate' => 30.00,
             'date' => '2024-01-01',
-            'meta' => [],
         ]);
 
         Http::fake([

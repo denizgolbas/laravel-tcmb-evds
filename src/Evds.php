@@ -92,16 +92,16 @@ class Evds
                 $rate = $this->roundRate($rate, $roundDecimals, $roundMode);
             }
 
+            // Use Carbon instance for date matching (model casts date to Carbon)
             $model = $modelClass::updateOrCreate(
                 [
                     'code' => $item->code,
                     'type' => $item->type,
                     'market_type' => $item->marketType,
-                    'date' => $item->date->format('Y-m-d'),
+                    'date' => $item->date,
                 ],
                 [
                     'rate' => $rate,
-                    'meta' => $item->meta,
                 ]
             );
 

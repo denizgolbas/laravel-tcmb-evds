@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $market_type forex|banknote (Forex/Banknote)
  * @property float $rate
  * @property string $date
- * @property array $meta
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
@@ -39,7 +38,6 @@ class EvdsCurrencyRate extends Model
         'market_type',
         'rate',
         'date',
-        'meta',
     ];
 
     /**
@@ -50,7 +48,6 @@ class EvdsCurrencyRate extends Model
     protected $casts = [
         'rate' => 'float',
         'date' => 'date',
-        'meta' => 'array',
     ];
 
     /**
@@ -81,16 +78,6 @@ class EvdsCurrencyRate extends Model
     public function getDate(): Carbon
     {
         return $this->date;
-    }
-
-    /**
-     * Get meta data
-     *
-     * @return array
-     */
-    public function getMeta(): array
-    {
-        return $this->meta ?? [];
     }
 
     /**

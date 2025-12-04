@@ -18,7 +18,6 @@ return new class extends Migration
             $table->enum('market_type', ['forex', 'banknote'])->default('forex')->index(); // Forex (Döviz) veya Banknote (Efektif)
             $table->decimal('rate', 12, 6); // Supports up to 6 decimal places (e.g., 45.676890)
             $table->date('date')->index();
-            $table->json('meta')->nullable();
             $table->timestamps();
 
             $table->unique(['code', 'type', 'market_type', 'date']);
