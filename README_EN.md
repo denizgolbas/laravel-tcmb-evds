@@ -2,6 +2,7 @@
 
 🇬🇧 **English** | [🇹🇷 Türkçe](README.md)
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/denizgolbas/laravel-tcmb-evds.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/laravel-tcmb-evds)
 [![Tests](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml/badge.svg)](https://github.com/denizgolbas/laravel-tcmb-evds/actions/workflows/tests.yml)
 
 A modern Laravel package specifically developed for TCMB EVDS2 API's "Daily Exchange Rates (Daily FX Rates)" service.
