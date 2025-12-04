@@ -92,13 +92,15 @@ class Evds
                 $rate = $this->roundRate($rate, $roundDecimals, $roundMode);
             }
 
-            // Use Carbon instance for date matching (model casts date to Carbon)
+            // updateOrCreate: Laravel automatically handles date casts
+            // When date cast is 'date', Laravel converts Carbon/string to proper format for WHERE clause
+            // We use Carbon instance here, Laravel will handle the conversion
             $model = $modelClass::updateOrCreate(
                 [
                     'code' => $item->code,
                     'type' => $item->type,
                     'market_type' => $item->marketType,
-                    'date' => $item->date,
+                    'date' => $item->date->startOfDay(), // Normalize to start of day for consistent matching
                 ],
                 [
                     'rate' => $rate,

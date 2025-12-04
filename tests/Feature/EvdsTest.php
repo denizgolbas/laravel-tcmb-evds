@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Denizgolbas\LaravelTcmbEvds\Tests\Feature;
 
+use Carbon\Carbon;
 use Denizgolbas\LaravelTcmbEvds\Evds;
 use Denizgolbas\LaravelTcmbEvds\Facades\Evds as EvdsFacade;
 use Denizgolbas\LaravelTcmbEvds\Models\EvdsCurrencyRate;
@@ -149,7 +150,7 @@ class EvdsTest extends TestCase
             'type' => 'sell',
             'market_type' => 'forex',
             'rate' => 30.00,
-            'date' => '2024-01-01',
+            'date' => Carbon::parse('2024-01-01')->startOfDay(),
         ]);
 
         Http::fake([
