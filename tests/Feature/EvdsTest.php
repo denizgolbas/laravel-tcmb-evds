@@ -18,7 +18,6 @@ class EvdsTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 
     public function test_facade_can_be_resolved(): void

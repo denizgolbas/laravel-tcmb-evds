@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Denizgolbas\LaravelTcmbEvds\Tests;
 
 use Denizgolbas\LaravelTcmbEvds\EvdsServiceProvider;
+use Illuminate\Support\Facades\Http;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -34,6 +35,11 @@ class TestCase extends Orchestra
         $app['config']->set('evds.base_endpoint', 'https://evds2.tcmb.gov.tr/service/evds/');
         $app['config']->set('evds.null_value_handling', 'previous_day');
         $app['config']->set('evds.default_currencies', ['USD', 'EUR']);
+    }
+
+    protected function defineDatabaseMigrations(): void
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
 
