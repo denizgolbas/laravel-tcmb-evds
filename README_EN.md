@@ -243,6 +243,7 @@ $saved = Evds::currency(['USD', 'EUR'])
     ->type('sell')
     ->marketType('forex')
     ->nullValueHandling('previous_day')
+    ->roundDecimals(2) // Round to 2 decimal places
     ->save();
 
 // Using saved data
@@ -484,7 +485,25 @@ $data = Evds::currency('USD')->today()->get();
 Fetches data from API and saves to database. Returns a Collection.
 
 ```php
+// Simple save (saves API value as-is)
 $saved = Evds::currency('USD')->today()->save();
+
+// Save with rounded decimals
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2) // Round to 2 decimal places (e.g., 45.67)
+    ->save();
+
+// Different rounding modes
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2, 'floor') // Round down (e.g., 45.67 -> 45.67, 45.678 -> 45.67)
+    ->save();
+
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2, 'ceil') // Round up (e.g., 45.67 -> 45.67, 45.671 -> 45.68)
+    ->save();
 ```
 
 ## 🧪 Tests

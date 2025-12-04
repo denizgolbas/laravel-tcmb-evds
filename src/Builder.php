@@ -27,6 +27,10 @@ class Builder
 
     protected ?string $nullValueHandling = null; // 'previous_day', 'last_week_avg', 'skip'
 
+    protected ?int $roundDecimals = null; // null = no rounding, otherwise round to N decimals
+
+    protected string $roundMode = 'round'; // 'round', 'floor', 'ceil'
+
     protected array $config;
 
     public function __construct(array $config)
@@ -249,6 +253,51 @@ class Builder
     public function getNullValueHandling(): string
     {
         return $this->nullValueHandling ?? $this->config['null_value_handling'] ?? 'previous_day';
+    }
+
+    /**
+     * Round decimals for rate values
+     *
+     * @param int $decimals Number of decimal places (e.g., 2 for 45.67)
+     * @param string $mode Rounding mode: 'round', 'floor', 'ceil'
+     * @return $this
+     */
+    public function roundDecimals(int $decimals, string $mode = 'round'): self
+    {
+        $allowedModes = ['round', 'floor', 'ceil'];
+        
+        if (! in_array($mode, $allowedModes)) {
+            throw new \InvalidArgumentException("Invalid rounding mode. Allowed: ".implode(', ', $allowedModes));
+        }
+
+        if ($decimals < 0) {
+            throw new \InvalidArgumentException("Decimal places must be >= 0");
+        }
+
+        $this->roundDecimals = $decimals;
+        $this->roundMode = $mode;
+
+        return $this;
+    }
+
+    /**
+     * Get round decimals setting
+     *
+     * @return int|null
+     */
+    public function getRoundDecimals(): ?int
+    {
+        return $this->roundDecimals;
+    }
+
+    /**
+     * Get round mode setting
+     *
+     * @return string
+     */
+    public function getRoundMode(): string
+    {
+        return $this->roundMode;
     }
 
     /**

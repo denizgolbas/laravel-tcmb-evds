@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code', 3)->index();
             $table->enum('type', ['buy', 'sell'])->default('sell')->index(); // Buy (Alış) veya Sell (Satış)
             $table->enum('market_type', ['forex', 'banknote'])->default('forex')->index(); // Forex (Döviz) veya Banknote (Efektif)
-            $table->decimal('rate', 10, 4);
+            $table->decimal('rate', 12, 6); // Supports up to 6 decimal places (e.g., 45.676890)
             $table->date('date')->index();
             $table->json('meta')->nullable();
             $table->timestamps();

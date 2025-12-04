@@ -243,6 +243,7 @@ $saved = Evds::currency(['USD', 'EUR'])
     ->type('sell')
     ->marketType('forex')
     ->nullValueHandling('previous_day')
+    ->roundDecimals(2) // 2 ondalık basamağa yuvarla
     ->save();
 
 // Kaydedilen verileri kullanma
@@ -484,7 +485,25 @@ $data = Evds::currency('USD')->today()->get();
 API'den veri çeker ve veritabanına kaydeder. Collection döndürür.
 
 ```php
+// Basit kaydetme (API'den gelen değer olduğu gibi kaydedilir)
 $saved = Evds::currency('USD')->today()->save();
+
+// Ondalık basamak sayısını yuvarlayarak kaydetme
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2) // 2 ondalık basamağa yuvarla (örn: 45.67)
+    ->save();
+
+// Farklı yuvarlama modları
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2, 'floor') // Aşağı yuvarla (örn: 45.67 -> 45.67, 45.678 -> 45.67)
+    ->save();
+
+$saved = Evds::currency('USD')
+    ->today()
+    ->roundDecimals(2, 'ceil') // Yukarı yuvarla (örn: 45.67 -> 45.67, 45.671 -> 45.68)
+    ->save();
 ```
 
 ## 🧪 Testler

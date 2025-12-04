@@ -131,8 +131,15 @@ class EvdsTest extends TestCase
             'code' => 'USD',
             'type' => 'sell',
             'market_type' => 'forex',
-            'date' => '2024-01-01',
         ]);
+        
+        $this->assertTrue(
+            EvdsCurrencyRate::where('code', 'USD')
+                ->where('type', 'sell')
+                ->where('market_type', 'forex')
+                ->whereDate('date', '2024-01-01')
+                ->exists()
+        );
     }
 
     public function test_save_method_updates_existing_record(): void
@@ -164,17 +171,19 @@ class EvdsTest extends TestCase
             ->marketType('forex')
             ->save();
 
-        $this->assertDatabaseHas('evds_currency_rates', [
-            'code' => 'USD',
-            'type' => 'sell',
-            'market_type' => 'forex',
-            'date' => '2024-01-01',
-            'rate' => 30.50,
-        ]);
-
+        $record = EvdsCurrencyRate::where('code', 'USD')
+            ->where('type', 'sell')
+            ->where('market_type', 'forex')
+            ->whereDate('date', '2024-01-01')
+            ->first();
+        
+        $this->assertNotNull($record);
+        $this->assertEquals(30.50, $record->rate);
+        
         $this->assertEquals(1, EvdsCurrencyRate::where('code', 'USD')
             ->where('type', 'sell')
             ->where('market_type', 'forex')
+            ->whereDate('date', '2024-01-01')
             ->count());
     }
 }

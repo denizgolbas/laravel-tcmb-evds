@@ -76,10 +76,20 @@ class Evds
 
         $saved = collect();
 
+        // Get rounding settings from builder
+        $roundDecimals = $builder?->getRoundDecimals();
+        $roundMode = $builder?->getRoundMode() ?? 'round';
+
         foreach ($data as $item) {
             // Skip empty or invalid data
             if (empty($item->code) || $item->rate <= 0 || $item->date === null) {
                 continue;
+            }
+
+            // Round rate if rounding is enabled
+            $rate = $item->rate;
+            if ($roundDecimals !== null) {
+                $rate = $this->roundRate($rate, $roundDecimals, $roundMode);
             }
 
             $model = $modelClass::updateOrCreate(
@@ -90,7 +100,7 @@ class Evds
                     'date' => $item->date,
                 ],
                 [
-                    'rate' => $item->rate,
+                    'rate' => $rate,
                     'meta' => $item->meta,
                 ]
             );
@@ -99,6 +109,23 @@ class Evds
         }
 
         return $saved;
+    }
+
+    /**
+     * Round rate value based on mode
+     *
+     * @param float $rate
+     * @param int $decimals
+     * @param string $mode
+     * @return float
+     */
+    protected function roundRate(float $rate, int $decimals, string $mode): float
+    {
+        return match ($mode) {
+            'floor' => floor($rate * (10 ** $decimals)) / (10 ** $decimals),
+            'ceil' => ceil($rate * (10 ** $decimals)) / (10 ** $decimals),
+            default => round($rate, $decimals),
+        };
     }
 
     /**
