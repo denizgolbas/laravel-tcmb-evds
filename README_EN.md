@@ -57,7 +57,7 @@ TCMB_EVDS_BASE_ENDPOINT=https://evds2.tcmb.gov.tr/service/evds/
 TCMB_EVDS_NULL_HANDLING=previous_day
 ```
 
-**Important:** You can obtain your API key from [TCMB EVDS2](https://evds2.tcmb.gov.tr).
+**Important:** You can obtain your API key from [TCMB EVDS2 User Documentation](https://evds2.tcmb.gov.tr/index.php?/evds/userDocs).
 
 ### Publishing Migrations
 

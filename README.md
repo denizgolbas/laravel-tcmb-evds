@@ -57,7 +57,7 @@ TCMB_EVDS_BASE_ENDPOINT=https://evds2.tcmb.gov.tr/service/evds/
 TCMB_EVDS_NULL_HANDLING=previous_day
 ```
 
-**Önemli:** API anahtarınızı [TCMB EVDS2](https://evds2.tcmb.gov.tr) adresinden alabilirsiniz.
+**Önemli:** API anahtarınızı [TCMB EVDS2 Kullanıcı Dokümanları](https://evds2.tcmb.gov.tr/index.php?/evds/userDocs) sayfasından alabilirsiniz.
 
 ### Migration'ları Publish Etme
 
