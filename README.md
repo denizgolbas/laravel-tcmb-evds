@@ -644,7 +644,7 @@ Katkılarınızı bekliyoruz! Lütfen:
 Sorularınız veya önerileriniz için:
 
 - Issue açın: [GitHub Issues](https://github.com/denizgolbas/laravel-tcmb-evds/issues)
-- Email: denizgolbas@example.com
+- Email: info@denizgolbas.com
 
 ## 🙏 Teşekkürler
 

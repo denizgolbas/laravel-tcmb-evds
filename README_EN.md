@@ -630,7 +630,7 @@ We welcome your contributions! Please:
 For questions or suggestions:
 
 - Open an issue: [GitHub Issues](https://github.com/denizgolbas/laravel-tcmb-evds/issues)
-- Email: denizgolbas@example.com
+- Email: info@denizgolbas.com
 
 ## 🙏 Acknowledgments
 
