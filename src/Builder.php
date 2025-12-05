@@ -320,7 +320,14 @@ class Builder
         $baseEndpoint = rtrim($this->config['base_endpoint'], '/');
         $params = $this->buildQueryParams();
 
-        return $baseEndpoint.'?'.http_build_query($params);
+        // TCMB EVDS API format: /service/evds/series=...&startDate=...&endDate=...&type=json
+        // series is part of the path, not a query parameter
+        $series = $params['series'];
+        unset($params['series']);
+        
+        $queryString = http_build_query($params);
+        
+        return $baseEndpoint.'/series='.$series.($queryString ? '&'.$queryString : '');
     }
 
     /**
