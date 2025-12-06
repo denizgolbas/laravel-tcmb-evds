@@ -268,7 +268,7 @@ $url = Evds::currency(['USD', 'EUR'])
     ->build();
 
 echo $url;
-// Çıktı: https://evds2.tcmb.gov.tr/service/evds/?series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL&startDate=01-01-2024&endDate=10-01-2024&type=json&key=...
+// Çıktı: https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL&startDate=01-01-2024&endDate=10-01-2024&type=json
 ```
 
 ### Model ile Veritabanından Veri Çekme

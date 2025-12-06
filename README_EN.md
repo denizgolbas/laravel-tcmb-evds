@@ -268,7 +268,7 @@ $url = Evds::currency(['USD', 'EUR'])
     ->build();
 
 echo $url;
-// Output: https://evds2.tcmb.gov.tr/service/evds/?series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL&startDate=01-01-2024&endDate=10-01-2024&type=json&key=...
+// Output: https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL&startDate=01-01-2024&endDate=10-01-2024&type=json
 ```
 
 ### Fetching Data from Database Using Model
